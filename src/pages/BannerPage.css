@@ -1,0 +1,125 @@
+.banner-page {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background-color: #dfe1e8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-left: 75px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.splashart {
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.splashart-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 480px) {
+  .accordion-container {
+    max-width: 300px;
+  }
+  .banner-page {
+    margin-left: 0;
+  }
+  .splashart {
+    max-width: 200px;
+  }
+}
+
+.accordion-container {
+  background-color: #faf6f4;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1185px;
+  margin: 0 auto;
+}
+
+.accordion-container h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #4595d1;
+  margin-bottom: 20px;
+}
+
+.accordion {
+  border-radius: 10px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #8193b1;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  width: 100%;
+  background-color: #dfe1e8;
+  padding: 16px 24px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c0511;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #b4cadc;
+}
+
+.accordion-title {
+  font-weight: 500;
+}
+
+.accordion-icon {
+  font-size: 22px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #34527e;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding-bottom 0.5s ease;
+  padding: 0 24px;
+  background-color: #b4cadc;
+}
+
+.accordion-content p {
+  padding: 16px 0;
+  color: #34527e;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 300px;
+  padding-bottom: 16px;
+}
+
+.accordion-item.active {
+  background-color: #faf6f4;
+}

@@ -1,0 +1,140 @@
+.character-page {
+  display: flex;
+  background-color: #faf6f4;
+  color: #0c0511;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+  gap: 20px;
+  position: relative;
+  flex-direction: column;
+  margin-left: 75px;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.splashart {
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.splashart-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 480px) {
+  .character-page {
+    margin-left: 0;
+  }
+  .splashart {
+    max-width: 200px;
+  }
+}
+
+.character-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.character-section {
+  margin-bottom: 40px;
+}
+
+.section-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #34527e;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+@media screen (min-width: 481px) {
+  .card-container {
+    justify-content: flex-start;
+  }
+}
+
+.character-card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.character-card {
+  background-color: #b4cadc;
+  color: #0c0511;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  background-color: #41cdef;
+}
+
+.character-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c0511;
+}
+
+.character-rarity,
+.character-school {
+  font-size: 14px;
+  color: #34527e;
+  margin-top: 8px;
+}
+
+.alphabet-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfe1e8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  gap: 8px;
+}
+
+.alphabet-link {
+  display: inline-block;
+  color: #34527e;
+  font-size: 16px;
+  margin: 4px;
+  text-decoration: none;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #faf6f4;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.alphabet-link:hover {
+  color: #4595d1;
+  background-color: #34527e;
+}
