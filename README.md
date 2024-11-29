@@ -60,8 +60,8 @@ arona-db/
 ## 🖼️ Screenshots
 | Page      | Preview                     |
 |-----------|-----------------------------|
-| Home      | ![Home Preview](src/assets/HomePage.png) |
-| Character | ![Character Preview](src/assets/CharacterPage.png) |
+| Home      | ![Home Preview](src/assets/HomePages.png) |
+| Character | ![Character Preview](src/assets/CharacterPages.png) |
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to fork this repository and submit a pull request.
