@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import "./Navbar.css";
 
-const Navbar = ({ currentPage, setCurrentPage }) => {
+const Navbar = () => {
   const location = useLocation();
 
   const menuItems = [
@@ -35,7 +35,6 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
     },
   ];
 
-  // Tentukan menu aktif berdasarkan URL saat ini
   const activeMenu = menuItems
     .find((item) => location.pathname === item.route)
     ?.name.toLowerCase();
@@ -50,9 +49,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
               activeMenu === item.name.toLowerCase() ? "active" : ""
             }`}
             onClick={() =>
-              setCurrentPage &&
-              activeMenu !== item.name.toLowerCase() &&
-              setCurrentPage(item.name.toLowerCase())
+              activeMenu !== item.name.toLowerCase()
             }
           >
             <Link to={item.route} className="icon">
@@ -60,7 +57,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
             </Link>
           </li>
         ))}
-        {/* Posisi follow diatur berdasarkan index menu yang aktif */}
+
         <li
           className="follow"
           style={{

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Modal from "../components/Modal1";
+import Modal from "../components/Modal";
 import "./HomePage.css";
 import splashArt from "../assets/splashart.png";
+import arona from "../assets/arona.png";
 
 const HomePage = () => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fetchCharacters = async () => {
     setIsLoading(true);
@@ -16,7 +18,7 @@ const HomePage = () => {
     setCharacters([]);
     try {
       const response = await axios.get(
-        "https://api-blue-archive.vercel.app/api/character/random?count=12"
+        "https://api-blue-archive.vercel.app/api/character/random?count=9"
       );
       setCharacters(response.data.data);
     } catch (err) {
@@ -31,20 +33,23 @@ const HomePage = () => {
     fetchCharacters();
   }, []);
 
-  const handleCardClick = (character) => {
-    setSelectedCharacter(character.name);
+  const openModal = (characterName) => {
+    setSelectedCharacter(characterName);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setSelectedCharacter(null);
+    setIsModalOpen(false);
   };
 
   return (
     <div className="homepage">
       <div className="splashart-section">
         <img src={splashArt} alt="Splashart" className="splashart-image" />
+        <img src={arona} alt="Arona" className="arona-image" />
         <h1 className="welcome-message">
-          Welcome, Sensei! Arona is here to assist you.
+          Welcome, Sensei!<br></br> Arona is here to assist you.
         </h1>
       </div>
 
@@ -61,20 +66,21 @@ const HomePage = () => {
               <div
                 className="character-card"
                 key={character._id}
-                onClick={() => handleCardClick(character)}
+                onClick={() => openModal(character.name)}
               >
                 <img
                   src={character.photoUrl}
                   alt={character.name}
                   className="character-image"
                 />
-                <h2 className="character-name">
-                  {character.names.firstName} {character.names.lastName}
-                </h2>
+                <h2 className="character-name">{character.name}</h2>
                 <p className="character-school">
                   {character.school}{" "}
                   <img
-                    src={character.imageSchool}
+                    src={
+                      character.imageSchool ||
+                      "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                    }
                     alt={`${character.school} logo`}
                     className="school-logo"
                   />
@@ -83,11 +89,11 @@ const HomePage = () => {
             ))}
         </div>
       </section>
-
-      {/* Modal */}
-      {selectedCharacter && (
-        <Modal name={selectedCharacter} onClose={closeModal} />
-      )}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        characterName={selectedCharacter}
+      />
     </div>
   );
 };

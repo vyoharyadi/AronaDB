@@ -19,24 +19,24 @@
 
 .modal-content {
   background: #fff;
-  padding: 20px;
+  padding: 30px;
   margin-bottom: 50px;
   border-radius: 8px;
   width: 90%;
   max-width: 600px;
-  max-height: 90%; /* Maksimum tinggi modal */
-  overflow-y: auto; /* Aktifkan scroll pada modal */
+  max-height: 90%;
+  overflow-y: auto;
   position: relative;
 }
 
 .modal-close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: sticky;
   background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 27px;
   cursor: pointer;
+  display: flex;
+  justify-self: end;
 }
 
 .character-portrait {
@@ -58,9 +58,48 @@
 .character-details {
   font-size: 14px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .error-message {
   color: red;
   text-align: center;
+}
+
+.affinities-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.affinity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.affinity-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.affinity-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.affinity-item p {
+  margin-top: 5px;
+  font-size: 14px;
 }

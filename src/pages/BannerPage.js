@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import "./BannerPage.css";
-import bannerImage from "../assets/splashart.png";
+import splashArt from "../assets/splashart.png";
 
 const BannerPage = () => {
   const [banners, setBanners] = useState({
@@ -14,9 +15,10 @@ const BannerPage = () => {
   useEffect(() => {
     const fetchBanners = async () => {
       try {
-        const response = await fetch("https://api.ennead.cc/buruaka/banner");
-        const data = await response.json();
-        setBanners(data);
+        const response = await axios.get(
+          "https://api.ennead.cc/buruaka/banner"
+        );
+        setBanners(response.data);
       } catch (error) {
         console.error("Failed to fetch banners:", error);
       }
@@ -79,7 +81,7 @@ const BannerPage = () => {
   return (
     <div className="banner-page">
       <div className="splashart">
-        <img src={bannerImage} alt="splashart" className="splashart-image" />
+        <img src={splashArt} alt="splashart" className="splashart-image" />
       </div>
       {renderAccordion("Current", banners.current, "current")}
       {renderAccordion("Upcoming", banners.upcoming, "upcoming")}

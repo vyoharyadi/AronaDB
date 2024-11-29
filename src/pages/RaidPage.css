@@ -1,7 +1,7 @@
 .raid-page {
   padding: 20px;
   font-family: "Poppins", sans-serif;
-  background-color: #dfe1e8;
+  background-color: #faf6f4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,6 @@
   width: 100%;
   max-width: 300px;
   overflow: hidden;
-  border-radius: 8px;
 }
 
 .splashart-image {
@@ -25,25 +24,13 @@
 }
 
 .accordion-container {
-  background-color: #faf6f4;
+  background-color: #dfe1e8;
   border-radius: 6px;
   padding: 20px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 1185px;
   margin: 0 auto;
-}
-
-@media (max-width: 480px) {
-  .accordion-container {
-    max-width: 300px;
-  }
-  .raid-page {
-    margin-left: 0;
-  }
-  .splashart {
-    max-width: 200px;
-  }
 }
 
 .accordion-container h2 {
@@ -68,7 +55,7 @@
 
 .accordion-header {
   width: 100%;
-  background-color: #dfe1e8;
+  background-color: #faf6f4;
   padding: 16px 24px;
   cursor: pointer;
   border: none;
@@ -122,4 +109,20 @@
 
 .accordion-item.active {
   background-color: #faf6f4;
+}
+
+@media (max-width: 480px) {
+  .accordion-container {
+    max-width: 300px;
+  }
+  .raid-page {
+    margin-left: 0;
+  }
+  .accordion-container {
+    margin-left: -10px;
+  }
+  .splashart {
+    max-width: 200px;
+    max-height: 120px;
+  }
 }

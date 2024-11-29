@@ -13,6 +13,7 @@
 .header-title {
   font-size: 1.5rem;
   color: #faf6f4;
+  margin-left: 60px;
 }
 
 .sidebar {
@@ -150,6 +151,7 @@
   transition: transform 0.3s ease;
   position: absolute;
   right: -10px;
+  top: 45px;
 }
 
 .toggle-btn .toggle-icon {
@@ -162,6 +164,9 @@
 }
 
 @media (max-width: 480px) {
+  .header-title {
+    margin-left: 0;
+  }
   .sidebar {
     display: none;
   }

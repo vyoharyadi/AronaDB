@@ -1,6 +1,7 @@
 .homepage {
   font-family: "Poppins", sans-serif;
   padding: 20px;
+  background-color: #faf6f4;
   text-align: center;
   align-items: center;
   min-height: 100vh;
@@ -10,34 +11,50 @@
   margin-left: 75px;
 }
 
-@media (max-width: 480px) {
-  .homepage {
-    margin-left: 0;
-  }
-  .splashart-section {
-    max-width: 200px;
-  }
-}
-
 .splashart-section {
   width: 100%;
-  max-width: 300px;
-  overflow: hidden;
+  background-image: url("../assets/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 8px;
-  margin-top: 100px;
-  margin-bottom: 120px;
+  margin-bottom: 20px;
+  height: 550px;
+  display: flex;
+  position: relative;
+  float: left;
+  flex-direction: row;
 }
 
 .splashart-image {
-  width: 100%;
-  height: auto;
+  width: 30%;
+  background-color: rgba(250, 246, 244, 0.8);
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  max-width: 350px;
+  max-height: 180px;
   object-fit: cover;
 }
 
+.arona-image {
+  object-fit: cover;
+  object-position: top;
+  max-width: 500px;
+  width: 60%;
+  max-height: 550px;
+}
+
 .welcome-message {
+  width: 30%;
+  justify-self: end;
+  padding: 10px;
   font-size: 24px;
-  color: #333;
-  margin: 0;
+  color: #0c0511;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: rgba(250, 246, 244, 0.8);
+  max-height: 70px;
+  align-self: center;
 }
 
 .homepage-section {
@@ -47,32 +64,33 @@
 .homepage-section h1 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #333;
-  border-bottom: 2px solid #eee;
+  color: #0c0511;
+  border-bottom: 2px solid #dfe1e8;
   padding-bottom: 10px;
 }
-/* Center Loading Text */
+
 .loading-text {
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
+  color: #0c0511;
   margin: 20px 0;
 }
 
 .refresh-button {
-  background-color: #0056b3;
-  color: white;
+  background-color: #41cdef;
+  color: #faf6f4;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
   margin-bottom: 20px;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .refresh-button:hover {
-  background-color: #004a99;
+  background-color: #4595d1;
 }
 
 .character-cards {
@@ -88,17 +106,19 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid #ddd;
+  background-color: #dfe1df;
+  border: 1px solid #41cdef;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  padding: 10px;
+  padding: 20px;
   width: 150px;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .character-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #41cdef;
 }
 
 .character-image {
@@ -108,14 +128,14 @@
 }
 
 .character-name {
-  font-size: 1rem;
+  font-size: 24px;
   margin: 10px 0 5px 0;
-  color: #333;
+  color: #0c0511;
 }
 
 .character-school {
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 20px;
+  color: #34527e;
 }
 
 .school-logo {
@@ -123,4 +143,33 @@
   height: 40px;
   margin-left: 5px;
   vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+  .homepage {
+    margin-left: 0;
+  }
+  .splashart-section {
+    max-width: 360px;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .splashart-image {
+    width: 100%;
+    margin-bottom: 0;
+    object-fit: contain;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 8px;
+    margin-bottom: 250px;
+  }
+  .arona-image {
+    display: none;
+  }
+  .welcome-message {
+    width: 100%;
+    max-height: 110px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: transparent;
+  }
 }

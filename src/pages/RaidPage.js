@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import "./RaidPage.css";
-import bannerImage from "../assets/splashart.png";
+import splashArt from "../assets/splashart.png";
 
 const RaidPage = () => {
   const [raids, setRaids] = useState({ current: [], upcoming: [], ended: [] });
@@ -10,9 +11,8 @@ const RaidPage = () => {
   useEffect(() => {
     const fetchRaids = async () => {
       try {
-        const response = await fetch("https://api.ennead.cc/buruaka/raid");
-        const data = await response.json();
-        setRaids(data);
+        const response = await axios.get("https://api.ennead.cc/buruaka/raid");
+        setRaids(response.data);
       } catch (error) {
         console.error("Failed to fetch raids:", error);
       }
@@ -73,7 +73,7 @@ const RaidPage = () => {
   return (
     <div className="raid-page">
       <div className="splashart">
-        <img src={bannerImage} alt="splashart" className="splashart-image" />
+        <img src={splashArt} alt="splashart" className="splashart-image" />
       </div>
       {renderAccordion("Current", raids.current, "current")}
       {renderAccordion("Upcoming", raids.upcoming, "upcoming")}

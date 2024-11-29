@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./CharacterPage.css";
 import Modal from "../components/Modal";
-import bannerImage from "../assets/splashart.png";
+import splashArt from "../assets/splashart.png";
 
 const CharacterPage = () => {
   const [groupedCharacters, setGroupedCharacters] = useState({});
@@ -44,12 +44,20 @@ const CharacterPage = () => {
       characters.map(async (character) => {
         try {
           const response = await axios.get(
-            `https://api-blue-archive.vercel.app/api/characters/students?name=${character.name}`
+            `https://api.ennead.cc/buruaka/character/${character.name}`
           );
-          const characterData = response.data.data[0];
-          imageMap[character.name] = characterData?.photoUrl || null;
+          const characterData = response.data;
+          imageMap[character.name] = {
+            photoUrl: characterData?.image?.icon || null,
+            imageSchool: characterData?.imageSchool || null,
+          };
         } catch (error) {
           console.error(`Error fetching image for ${character.name}:`, error);
+          imageMap[character.name] = {
+            photoUrl:
+              "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg",
+            imageSchool: null,
+          };
         }
       })
     );
@@ -69,55 +77,59 @@ const CharacterPage = () => {
   return (
     <div className="character-page">
       <div className="splashart">
-        <img src={bannerImage} alt="splashart" className="splashart-image" />
+        <img src={splashArt} alt="splashart" className="splashart-image" />
       </div>
-
-      <div className="alphabet-sidebar">
-        {Array.from({ length: 26 }, (_, i) => {
-          const letter = String.fromCharCode(65 + i);
-          return groupedCharacters[letter] ? (
-            <a href={`#${letter}`} className="alphabet-link" key={i}>
-              {letter}
-            </a>
-          ) : null;
-        })}
-      </div>
-
-      <div className="character-list">
-        {Object.keys(groupedCharacters)
-          .sort()
-          .map((letter) => (
-            <div key={letter} id={letter} className="character-section">
-              <h2 className="section-heading">{letter}</h2>
-              <div className="card-container">
-                {groupedCharacters[letter].map((character) => (
-                  <div
-                    key={character.id}
-                    className="character-card"
-                    onClick={() => openModal(character.name)}
-                  >
-                    <img
-                      src={
-                        imageUrls[character.name] ||
-                        "https://via.placeholder.com/150"
-                      }
-                      alt={character.name}
-                      className="character-card-image"
-                    />
-                    <h3 className="character-name">{character.name}</h3>
-                    <p className="character-rarity">
-                      Rarity: {character.rarity}
-                    </p>
-                    <p className="character-school">
-                      School: {character.school}
-                    </p>
-                  </div>
-                ))}
+      <div className="main-character">
+        <div className="alphabet-sidebar">
+          {Array.from({ length: 26 }, (_, i) => {
+            const letter = String.fromCharCode(65 + i);
+            return groupedCharacters[letter] ? (
+              <a href={`#${letter}`} className="alphabet-link" key={i}>
+                {letter}
+              </a>
+            ) : null;
+          })}
+        </div>
+        <div className="character-list">
+          {Object.keys(groupedCharacters)
+            .sort()
+            .map((letter) => (
+              <div key={letter} id={letter} className="character-section">
+                <h2 className="section-heading">{letter}</h2>
+                <div className="card-container">
+                  {groupedCharacters[letter].map((character) => (
+                    <div
+                      key={character.id}
+                      className="character-card"
+                      onClick={() => openModal(character.name)}
+                    >
+                      <img
+                        src={
+                          imageUrls[character.name]?.photoUrl ||
+                          "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                        }
+                        alt={character.name}
+                        className="character-image"
+                      />
+                      <h2 className="character-name">{character.name}</h2>
+                      <p className="character-school">
+                        {character.school}{" "}
+                        {/* <img
+                          src={
+                            imageUrls[character.name]?.imageSchool ||
+                            "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                          }
+                          alt={`${character.school} logo`}
+                          className="school-logo"
+                        /> */}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+        </div>
       </div>
-
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
