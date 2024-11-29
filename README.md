@@ -1,46 +1,90 @@
-usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
-           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]
-           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]
-           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]
-           <command> [<args>]
 
-These are common Git commands used in various situations:
+# Arona DB
 
-start a working area (see also: git help tutorial)
-   clone      Clone a repository into a new directory
-   init       Create an empty Git repository or reinitialize an existing one
+**Arona DB** is a React-based web application designed to provide comprehensive information about characters, banners, and raids from the game **Blue Archive**. This project aims to deliver an interactive and responsive experience for Blue Archive fans.
 
-work on the current change (see also: git help everyday)
-   add        Add file contents to the index
-   mv         Move or rename a file, a directory, or a symlink
-   restore    Restore working tree files
-   rm         Remove files from the working tree and from the index
+## 🎯 Key Features
+- **Character Page**: Displays detailed information about characters from various schools and clubs.
+- **Banner Page**: Information about ongoing, upcoming, and past gacha banners.
+- **Raid Page**: Details of active and scheduled raids.
+- **Offline Mode**: Supports offline search functionality through a service worker.
+- **Responsive UI**: Optimized for various devices to ensure a seamless experience.
 
-examine the history and state (see also: git help revisions)
-   bisect     Use binary search to find the commit that introduced a bug
-   diff       Show changes between commits, commit and working tree, etc
-   grep       Print lines matching a pattern
-   log        Show commit logs
-   show       Show various types of objects
-   status     Show the working tree status
+## 🛠️ Technologies Used
+- **React JS**: The primary framework for building the application.
+- **Axios**: For fetching data from external APIs.
+- **Service Worker**: To enable offline functionality.
+- **CSS Modules**: Component-specific styling.
 
-grow, mark and tweak your common history
-   backfill   Download missing objects in a partial clone
-   branch     List, create, or delete branches
-   commit     Record changes to the repository
-   merge      Join two or more development histories together
-   rebase     Reapply commits on top of another base tip
-   reset      Reset current HEAD to the specified state
-   switch     Switch branches
-   tag        Create, list, delete or verify a tag object signed with GPG
+## 📂 Project Structure
+```
+arona-db/
+├── public/               # Static files
+├── src/                  # Main source code
+│   ├── assets/           # Images and visual resources
+│   ├── components/       # UI components (Header, Modal, Navbar)
+│   ├── pages/            # Main application pages
+│   ├── App.js            # Root component of the application
+│   ├── index.js          # Application entry point
+│   ├── service-worker.js # Service worker for caching
+│   └── ...               # Other files
+├── package.json          # npm configuration and dependencies
+├── README.md             # Project documentation
+└── ...
+```
 
-collaborate (see also: git help workflows)
-   fetch      Download objects and refs from another repository
-   pull       Fetch from and integrate with another repository or a local branch
-   push       Update remote refs along with associated objects
+## 🚀 Getting Started
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/arona-db.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd arona-db
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the application:
+   ```bash
+   npm start
+   ```
+5. Access the app at [http://localhost:8000](http://localhost:8000).
 
-'git help -a' and 'git help -g' list available subcommands and some
-concept guides. See 'git help <command>' or 'git help <concept>'
-to read about a specific subcommand or concept.
-See 'git help git' for an overview of the system.
+## 🌐 APIs Used
+- **Blue Archive APIs**: Providing character, banner, and raid data.
+  - [https://api.ennead.cc/buruaka/](https://api.ennead.cc/buruaka/)
+  - [https://api-blue-archive.vercel.app](https://api-blue-archive.vercel.app)
+
+## 🖼️ Screenshots
+| Page      | Preview                     |
+|-----------|-----------------------------|
+| Home      | ![Home Preview](src/assets/HomePage.png) |
+| Character | ![Character Preview](src/assets/CharacterPage.png) |
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork this repository and submit a pull request.
+
+1. Fork this repository.
+2. Create a new feature branch:
+   ```bash
+   git checkout -b new-feature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin new-feature
+   ```
+5. Open a pull request.
+
+## 📜 License
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+> **Developed with 💙 by [Vyo Haryadi](https://github.com/vyoharyadi)**  
+> For inquiries, feel free to contact me at [vyoharyadi@gmail.com](mailto:vyoharyadi@gmail.com).
